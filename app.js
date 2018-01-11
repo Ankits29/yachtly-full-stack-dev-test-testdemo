@@ -1,6 +1,18 @@
 const express = require('express');
 const app = express();
+const bodyParser    = require('body-parser');
 const models = require('./models');
+app.use(bodyParser.json());
+
+app.use(express.static(__dirname+'/front-end'));
+
+app.use(function(req,res,next){
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
 
 app.get('/api/users/all', function(req, res){
 	models.student.findAll().then(function(student){
@@ -42,7 +54,7 @@ app.post('/api/user/edit', function(req, res){
 		console.log(result[0])
 		if(result[0])res.send(true)
 	})
-});
+})
 
 app.delete('/api/user', function(req, res){
 	console.log('here')
@@ -53,7 +65,7 @@ app.delete('/api/user', function(req, res){
 	}).then(function(result){
 		if(result)res.send(true)
 	})
-});
+})
 
 app.listen(3000, function(){
 	console.log('server listining to port 3000...')
