@@ -1,0 +1,27 @@
+<div class="users-list">
+    <h3>Users List</h2>
+      <a href="#!/user/add" class="btn btn-link">Add user</a>
+    <table class="table table-hover" ng-if="users.length">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="usr in users">
+        <td>{{usr.name}}</td>
+        <td>{{usr.email}}</td>
+        <td>{{usr.phoneNumber}}</td>
+        <td>{{usr.address}}</td>
+        <td><button type="button" class="btn btn-primary" ng-click="editUser(usr.id)">Edit</button></td>
+        <td><button type="button" class="btn btn-danger" ng-click="deleteUser(usr.id,$index)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+ <div ng-if="users.length==0" style="text-align: center;">No Record found.</div>
+</div>

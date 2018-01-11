@@ -1,0 +1,13 @@
+.red {
+  color: #ff0000;
+  font-size: 15px;
+}
+
+.login-form{
+	margin: 0 auto;
+    padding-top: 70px;
+}
+
+.users-list{
+	margin-top: 50px;
+}
