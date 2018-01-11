@@ -28,6 +28,33 @@ app.post('/api/user/findone', function(req, res){
 	})
 });
 
+app.post('/api/user/edit', function(req, res){
+	models.student.update({
+		userID : req.body.userID,
+		name : req.body.name,
+		email : req.body.email,
+		phoneNumber : req.body.phoneNumber,
+		address : req.body.address
+	}, { 
+				where: {id: req.body.id} 
+			}
+	).then(function(result){
+		console.log(result[0])
+		if(result[0])res.send(true)
+	})
+});
+
+app.delete('/api/user', function(req, res){
+	console.log('here')
+	models.student.destroy({
+		where : {
+			id : req.body.id
+		}
+	}).then(function(result){
+		if(result)res.send(true)
+	})
+});
+
 app.listen(3000, function(){
 	console.log('server listining to port 3000...')
 })
