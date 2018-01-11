@@ -1,20 +1,19 @@
 {
-  "name": "yachtly-full-stack-dev-test-testdemo",
+  "name": "sequelize-pro",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Ankits29/yachtly-full-stack-dev-test-testdemo.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Ankits29/yachtly-full-stack-dev-test-testdemo/issues"
-  },
-  "homepage": "https://github.com/Ankits29/yachtly-full-stack-dev-test-testdemo#readme"
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "nodemon": "^1.14.10",
+    "pg": "^7.4.1",
+    "sequelize": "^4.31.0"
+  }
 }
